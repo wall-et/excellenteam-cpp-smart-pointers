@@ -11,7 +11,7 @@ int main() {
 
     UniquePtr<Person> p2(new Person("s"));
     p2->print();
-    if (p2.is())
+    if (p2)
     {
         std::cout << "something" <<std::endl;
     }

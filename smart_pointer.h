@@ -20,7 +20,7 @@ public:
 
     T *get() const;
 
-    bool is() const;
+    operator bool();
 
 private:
     // Prevent coping
@@ -61,7 +61,7 @@ T *UniquePtr<T>::get() const {
 }
 
 template<class T>
-bool UniquePtr<T>::is() const{
+UniquePtr<T>::operator bool(){
     return dynamic_cast<T *>(get()) != NULL;
 }
 
