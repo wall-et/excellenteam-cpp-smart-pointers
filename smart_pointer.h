@@ -5,6 +5,8 @@
 #ifndef EXCELLENTEAM_ELLA_CPP_SMART_POINTERS_WALL_ET_SMART_POINTER_H
 #define EXCELLENTEAM_ELLA_CPP_SMART_POINTERS_WALL_ET_SMART_POINTER_H
 
+#include <stdexcept>
+
 template<typename T>
 class UniquePtr {
 public:
@@ -24,11 +26,17 @@ private:
 
     UniquePtr &operator=(UniquePtr const &);
 
+    UniquePtr &operator=(T *);
+
     T *m_ptr;
 };
 
 template<typename T>
-UniquePtr<T>::UniquePtr(T *ptr) : m_ptr(ptr) {}
+UniquePtr<T>::UniquePtr(T *ptr) : m_ptr(ptr) {
+
+    if (!ptr)
+        throw std::invalid_argument("ptr is null");
+}
 
 template<typename T>
 UniquePtr<T>::~UniquePtr() {
@@ -46,14 +54,9 @@ T &UniquePtr<T>::operator*() const {
 }
 
 template<typename T>
-T *UniquePtr<T>::get() const{
-
-}
-
-template<typename T>
-T *UniquePtr<T>::get() const{
+T *UniquePtr<T>::get() const {
     return m_ptr;
-};
+}
 //UniquePtr<Person> p(new Person("Shlomit"));
 //if (p)
 //{
