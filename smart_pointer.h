@@ -20,6 +20,8 @@ public:
 
     T *get() const;
 
+    bool is() const;
+
 private:
     // Prevent coping
     UniquePtr(UniquePtr const &);
@@ -57,6 +59,12 @@ template<typename T>
 T *UniquePtr<T>::get() const {
     return m_ptr;
 }
+
+template<class T>
+bool UniquePtr<T>::is() const{
+    return dynamic_cast<T *>(get()) != NULL;
+}
+
 //UniquePtr<Person> p(new Person("Shlomit"));
 //if (p)
 //{

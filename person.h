@@ -13,18 +13,16 @@ public:
     Person(const char *);
     Person(const char *, const int id, const char age);
 
-#ifdef TESTING
+//#ifdef TESTING
     void print() const;
-#endif
+//#endif
 
 private:
-
-    void *operator new[](size_t size);
-    void operator delete[](void *ptr);
-
     char m_full_name[32];
     unsigned int m_id;
     unsigned char m_age;
 };
+
+
 
 #endif //EXCELLENTEAM_ELLA_CPP_SMART_POINTERS_WALL_ET_PERESON_H
