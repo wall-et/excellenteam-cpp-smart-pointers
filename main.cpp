@@ -6,6 +6,8 @@
 #include "smart_pointer.h"
 #include "person.h"
 
+
+
 #ifdef TESTING
 void test_sp_memory_released(){
     char * c1 = new char[1];
@@ -61,6 +63,9 @@ void test_sp_star_call(){
 #endif //#ifdef TESTING
 
 int main() {
+#ifdef LOGGING
+    UniquePtr<Person> p1(new Person);
+#endif
 #ifdef TESTING
     test_sp_memory_released();
     test_sp_arrow_call();
