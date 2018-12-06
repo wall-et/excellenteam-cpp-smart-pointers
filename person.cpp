@@ -20,3 +20,7 @@ Person::Person(const char *name, const int id, const char age)  : m_id(0),m_age(
 void Person::print() const {
     std::cout << m_full_name <<std::endl;
 }
+
+const char * Person::getFullName() const {
+    return m_full_name;
+}

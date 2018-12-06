@@ -15,6 +15,7 @@ public:
 
 //#ifdef TESTING
     void print() const;
+    const char * getFullName() const;
 //#endif
 
 private:
