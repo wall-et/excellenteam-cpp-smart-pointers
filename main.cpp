@@ -6,7 +6,7 @@
 #include "smart_pointer.h"
 #include "person.h"
 
-
+#ifdef TESTING
 void test_sp_memory_released(){
     char * c1 = new char[1];
     {
@@ -58,12 +58,15 @@ void test_sp_star_call(){
     }
 }
 
+#endif //#ifdef TESTING
 
 int main() {
+#ifdef TESTING
     test_sp_memory_released();
     test_sp_arrow_call();
     test_sp_bool_op_call();
     test_sp_star_call();
+#endif //#ifdef TESTING
     return 0;
 }
 

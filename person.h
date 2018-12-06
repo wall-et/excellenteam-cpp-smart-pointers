@@ -13,10 +13,10 @@ public:
     Person(const char *);
     Person(const char *, const int id, const char age);
 
-//#ifdef TESTING
+#ifdef TESTING
     void print() const;
     const char * getFullName() const;
-//#endif
+#endif
 
 private:
     char m_full_name[32];
